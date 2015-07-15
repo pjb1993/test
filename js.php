@@ -5,27 +5,28 @@
 	<title>Document</title>
 </head>
 <body>
-<a id='aa'>sss</a>
+<a id='aa'>asd</a>
 </body>
 <script type="text/javascript" src="/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
-window.onload=loop;
+window.onload=json;
+
 function loop(){
-loop=setInterval(a,1000);
+loop=setInterval(a,1000); //延时循环
 }
-function a(){
+function json(){
 var a=new Date();
 var c=JSON.parse('{"name":"huangxiaojian","age":"23"}'); //解释为json 对象
 var b=JSON.stringify(c);  //从对象中解释出字符串
 alert(b);
 // document.write(a);
 $('#aa').html(c);
-clearInterval(loop);
+// clearInterval(loop); //取消延时
 }
 function b(){
 var a=true;
 alert(a);
-var b=typeof c;
+var b=typeof c;  //数据类型检测
 alert(b);
 
 }
@@ -35,7 +36,7 @@ function writeObj(obj){
         var property=obj[i];   
         description+=i+" = "+property+"\n";  
     }   
-    alert(description); 
+    alert(description);  //打印对象
 }
 function cut(){
 var url="http://jlb.culaiwan.com";
