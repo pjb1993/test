@@ -6,10 +6,23 @@
 </head>
 <body>
 <a id='aa'>asd</a>
+<form onclick="sub()" method="get">
+<input type="text" name="aaa" >
+	<input type="submit" value="Submit"> 
+</form>
 </body>
 <script type="text/javascript" src="/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
-window.onload=json;
+window.onload=sub;
+ function sub(){
+$.ajax({
+	url: '/123.txt',
+	dataType: 'string',
+	success:function(data){
+		alert('成功');
+	}
+
+ })}
 
 function loop(){
 loop=setInterval(a,1000); //延时循环
