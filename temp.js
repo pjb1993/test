@@ -25,7 +25,7 @@ function getTime()
 function clock(){
     var txt="/me我也变成了没有感情的报时器，每10s测试一次"+getTime();
     $('#message').find('textarea').val(txt);
-    //$('#message').submit();
+    $('#message').submit();
 }
 
 //开启定时器  ，时间单位为  1000=1s
