@@ -22,13 +22,26 @@ function getTime()
 
     return time=year+'/'+month+'/'+day+'/'+hour+':'+minute+':'+second
 }
-function clock(){
-    var txt="/me我也变成了没有感情的报时器，每10s测试一次"+getTime();
+function clock(t='time',me=true){
+    var txt;
+    if(t=='time'){
+        txt="我也变成了没有感情的报时器，每10s测试一次"+getTime();
+    }else if(t=='hitokoto'){
+        $.ajax({
+            url:'https://v1.hitokoto.cn/',
+            dataType:'json',
+            async:false, 
+            success:function(data){
+                txt=data.hitokoto+'---《'+data.from+'》'
+            }
+        });
+    }
+    if(me){txt='/me'+txt}
     $('#message').find('textarea').val(txt);
     $('#message').submit();
 }
 
 //开启定时器  ，时间单位为  1000=1s
-var myVar=setInterval('clock()',10000);
+//var myVar=setInterval('clock("hitokoto")',10000);
 //关闭定时器
-clearInterval(myVar);
+//clearInterval(myVar);
